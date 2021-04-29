@@ -205,9 +205,10 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
+include_directories(include)
 
 
-add_executable(servo_motor src/servo_motor.cpp)
+add_executable(servo_motor src/servo_motor.cpp src/Pololu.cpp src/SerialCom.cpp src/ServoMotor.cpp)
 target_link_libraries(servo_motor ${catkin_LIBRARIES})
 add_dependencies(servo_motor mex_ros_api_generate_messages_cpp)
 #add_dependencies(servo_motor mex_ros_api_gencpp)
