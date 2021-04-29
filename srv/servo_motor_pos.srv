@@ -1,0 +1,5 @@
+float32 inpLeftSrv
+float32 inpRightSrv
+---
+float32 outRightSrv
+float32 outLeftSrv
