@@ -1,5 +1,8 @@
-float32 inpLeftSrv
-float32 inpRightSrv
+int32   inpMotorIdxSrv
+string  inpPosUnit
+int32   inpPosVal
 ---
-float32 outRightSrv
-float32 outLeftSrv
+int32   outMotorIdxSrv
+string  outPosUnit
+int32   outPosVal
+

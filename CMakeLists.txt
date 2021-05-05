@@ -53,6 +53,7 @@ add_message_files(
    servo_motor_abs_pos.msg
 )
 
+
 ## Generate services in the 'srv' folder
 add_service_files(
    DIRECTORY srv
