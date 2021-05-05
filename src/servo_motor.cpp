@@ -9,8 +9,8 @@
 Pololu      *conn;
 ServoMotor  *ptrArm;
 ServoMotor* *fieldOMotors;
-int nmbMotors = 2;
-int glbArmIdx = 0; // for demo only
+int nmbMotors = 4;
+
 
 /*
  * ROS processing functions
@@ -69,8 +69,6 @@ int main(int argc, char **argv){
 
 
 bool setPosSrvMotor(mex_ros_api::servo_motor_pos::Request   &input, mex_ros_api::servo_motor_pos::Response  &output){
-
-	glbArmIdx = (glbArmIdx + 1) % nmbMotors;
 	std::string unitStr;
 
 	output.outMotorIdxSrv = (int)input.inpMotorIdxSrv;
@@ -101,7 +99,7 @@ bool setPosSrvMotor(mex_ros_api::servo_motor_pos::Request   &input, mex_ros_api:
 	// set position values values
 	try{
 
-		ptrArm = fieldOMotors[glbArmIdx];
+		ptrArm = fieldOMotors[(int)input.inpMotorIdxSrv];
 		if(unitStr.compare(0,3,"ABS") == 0 ){
 			ptrArm->setPositionInAbs((int)input.inpPosVal);
 		}else if (unitStr.compare(0,3,"DEG") == 0 ){
